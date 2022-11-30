@@ -4,6 +4,15 @@ import Header from '../header/Header';
 import Main from '../main/Main';
 import Footer from '../footer/Footer';
 import Nav from '../nav/Nav';
+import Pagenotfound from '../pages/Pagenotfound';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+
 
 class App extends React.Component {
 
@@ -14,12 +23,22 @@ class App extends React.Component {
     const nav = this.props.nav;
 
     return (
-      <div className="App">
-        <Header title1={title1} hero={this.props.hero} />
-        <Nav nav={nav} />
-        <Main ul1={ul1} />
-        <Footer />
-      </div>
+      <BrowserRouter>
+
+        <div className="App">
+          <Header title1={title1} hero={this.props.hero} />
+          <Nav nav={nav} />
+
+          <Routes>
+            <Route path='/' element={<Main ul1={ul1} txtMainProps={'Lorem, ipsum dolor 1333'} />} />
+            <Route path='/home' element={<Main ul1={ul1} txtMainProps={'Lorem, ipsum dolor 1333'} />} />
+            <Route path='*' element={<Pagenotfound />} />
+          </Routes>
+
+          <Footer />
+        </div>
+
+      </BrowserRouter>
     );
   }
 }

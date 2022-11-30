@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+}
